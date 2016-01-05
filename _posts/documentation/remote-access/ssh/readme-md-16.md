@@ -27,4 +27,4 @@ Linux的各个发行版和Mac OS操作系统都预装SSH客户端，Windows系�
 
 
 - [Linux & Mac OS](../unix.md)
-- [Windows](../windows.md)
+- [Windows](../windows.md.3)
