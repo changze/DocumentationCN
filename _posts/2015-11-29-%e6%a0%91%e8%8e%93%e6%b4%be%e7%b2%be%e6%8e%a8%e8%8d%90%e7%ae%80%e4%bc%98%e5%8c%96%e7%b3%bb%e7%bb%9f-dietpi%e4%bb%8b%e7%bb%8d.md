@@ -10,28 +10,29 @@ published: true
 ---
 简介：DietPi是一个非常棒的树莓派操作系统，在官方推荐系统Raspbian基础上进行了大量精简优化，支持所有型号的Raspberry Pi (暂不支持计算模块)，Odroid-C1，Odroid-XU3/4，Orange Pi (测试版)以及Vmware虚拟机。可以方便快捷地安装大量常见软件(如LASP，Kodi，Wordpress,OpenVPN等)，同时进行了非常多的优化。
 
-- <a href="http://dietpi.com/">官方主页</a>
-- <a href="https://github.com/Fourdee/DietPi">项目主页</a>
-- <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=63&t=100976">项目主贴</a>
-- <a href="https://github.com/Fourdee/DietPi/blob/master/CHANGELOG.txt">更新说明</a>
-- <a href="http://fuzon.co.uk/phpbb/viewtopic.php?f=8&t=9#p9">下载地址</a>
-- <a href="http://dietpi.com/downloads/DietPi_RPi-(Jessie).7z">当前最新版本</a>
+- <a href="http://dietpi.com/" target="_blank">官方主页</a>
+- <a href="https://github.com/Fourdee/DietPi" target="_blank">项目主页</a>
+- <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=63&t=100976" target="_blank">项目主贴</a>
+- <a href="https://github.com/Fourdee/DietPi/blob/master/CHANGELOG.txt" target="_blank">更新说明</a>
+- <a href="http://fuzon.co.uk/phpbb/viewtopic.php?f=8&t=9#p9" target="_blank">下载地址</a>
+- <a href="http://dietpi.com/downloads/DietPi_RPi-(Jessie).7z" target="_blank">当前最新版本</a>
 
 DietPi的特点与使用心得：
 
-1.支持所有树莓派型号(暂不支持计算模块)，大量精简优化，如减少读写，延长SD卡寿命；
-2.可以通过DietPi-Software简单快捷地安装大量常用软件，抛弃繁琐配置，不用费神编译源码敲命令；
-3.DietPi-Config功能丰富，可对超频，日志记录，无线网络连接等进行设置 ；
-4.体积小。比起Raspbian超过2G的体积，DietPi下载镜像只有不到100MB (V100)；
-5.需求低。比ArchLinux arm安装后占用的空间还小，仅作服务器使用的话1G大小的SD卡也可以；
-6.身轻如燕、健步如飞。启动后进程少，内存占用低 7.Wifi功能支持完善；
-8.比Raspbian拥有更小的体积，更多的功能；
-9.更新非常频繁！每次都有新功能加入！半年不到版本号已经从v34飙到v100
-10.最新版升级到Jessie，带来了systemd作为系统服务管理器，网络上很多设置开机启动的教程基于init系统，也就是修改rc.local之类的。如果不习惯可以先下载Wheezy版。 
+1. 支持所有树莓派型号(暂不支持计算模块)，大量精简优化，如减少读写，延长SD卡寿命；
+2. 可以通过DietPi-Software简单快捷地安装大量常用软件，抛弃繁琐配置，不用费神编译源码敲命令；
+3. DietPi-Config功能丰富，可对超频，日志记录，无线网络连接等进行设置 ；
+4. 体积小。比起Raspbian超过2G的体积，DietPi下载镜像只有不到100MB (V100)；
+5. 需求低。比ArchLinux arm安装后占用的空间还小，仅作服务器使用的话1G大小的SD卡也可以；
+6. 身轻如燕、健步如飞。启动后进程少，内存占用低；
+7. Wifi功能支持完善；
+8. 比Raspbian拥有更小的体积，更多的功能；
+9. 更新非常频繁！每次都有新功能加入！半年不到版本号已经从v34飙到v100。
+10. 最新版升级到Jessie，带来了systemd作为系统服务管理器，网络上很多设置开机启动的教程基于init系统，也就是修改rc.local之类的。如果不习惯可以先下载Wheezy版。 
 
 DietPi核心功能一览： 
 
-- DietPi-Software：可以方便快捷地安装流行软件，无需繁琐设置，"开箱即用"。详细支持软件列表请移步：<a href="http://dwz.cn/2b0jqF">这个页面；
+- DietPi-Software：可以方便快捷地安装流行软件，无需繁琐设置，"开箱即用"。详细支持软件列表请移步：<a href="http://dwz.cn/2b0jqF" target="_blank">这个页面</a>；
 - DietPi-Config：设备软硬件参数调整工具，拥有比官方raspi-config更多的选项。
 - DietPi-Backup：备份系统从此变得简单！不需要dd和win32diskimager。
 - DietPi-Sync：目录同步，随心所欲。
@@ -43,7 +44,7 @@ DietPi核心功能一览：
 
 关于DietPi的博客介绍： 
 
-我自己写的两篇，有些内容已经过时：<a href="http://www.cnblogs.com/sjqlwy/p/4446071.html">第一篇</a>，<a href="http://www.cnblogs.com/sjqlwy/p/4457006.html">第二篇。</a>
+我自己写的两篇，有些内容已经过时：<a href="http://www.cnblogs.com/sjqlwy/p/4446071.html" target="_blank">第一篇</a>，<a href="http://www.cnblogs.com/sjqlwy/p/4457006.html" target="_blank">第二篇。</a>
 
 已支持软件列表(部分)：
 
@@ -54,7 +55,8 @@ DietPi核心功能一览：
 - [DietPi-Cam][1] 简单易用的树莓派摄像头网页控制前端，支持诸多功能，最主要是即插即用，一键安装啊！
 - OwnCloud 私有云存储服务
 - WordPress 流行的博客平台
-- Weaved 之前介绍过的物联网服务，支持内网穿透WebIOPi通过网页前端控制树莓派的GPIO接口
+- Weaved 之前介绍过的物联网服务，支持内网穿透
+- WebIOPi 通过网页前端控制树莓派的GPIO接口
 - Linux Dash & PhpSysInfo 监控运行状态的网页前端
 - LAMP，phpMyAdmin等Web服务器必备利器，一键安装！！
 - OpenVPN & SoftEther VPN服务器
