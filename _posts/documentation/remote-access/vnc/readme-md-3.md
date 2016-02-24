@@ -15,26 +15,22 @@ _theme_show_post_title: 0
 
 - 在树莓派上安装TightVNC（在树莓派本机的终端安装或通过[SSH][1]客户端用命令行安装）:
 
-```
-sudo apt-get install tightvncserver 
-```
+    sudo apt-get install tightvncserver
 
 - 然后启动TightVNC服务，服务器将会提示，请管理员设定一个仅供查看的密码：
 
-```
-tightvncserver
-```
+    tightvncserver
 
 - 在终端启动一个VNC服务。下面的例子在`:0`端口启动了一个全高清的会话：
 
-```
-vncserver :0 -geometry 1920x1080 -depth 24
-```
+    vncserver :0 -geometry 1920x1080 -depth 24
 
 - 接下来在主控端安装并运行VNC客户端： 
     - 在Linux系统中，安装`xtightvncviewer`：
-    `sudo apt-get install xtightvncviewer` 
-    - 在其他系统中，请浏览[TightVNC.com][2]下载相应平台的客户端。
+
+    sudo apt-get install xtightvncviewer
+
+	- 在其他系统中，请浏览[TightVNC.com][2]下载相应平台的客户端。
 
 ### 开机自动运行
 
@@ -42,113 +38,100 @@ vncserver :0 -geometry 1920x1080 -depth 24
 
 - 创建一个名为`vnc.sh`（供参考）的脚本：
 
-`cd`
-`sudo nano vnc.sh` 
+    cd
+	sudo nano vnc.sh
 
 - 然后输入以下内容：
 
-`#!/bin/sh`
-`vncserver :0 -geometry 1920x1080 -depth 24 -dpi 96`
+    #!/bin/sh
+    vncserver :0 -geometry 1920x1080 -depth 24 -dpi 96
 
 - 然后按`Ctrl`和`X`（意思为退出），此时`nano`会提示询问是否保存，再按`Y`（即：确认保存），最后按下`Enter`，完成脚本的保存。
-
 - 添加执行权限：
 
-```
-chmod +x vnc.sh
-```
+    chmod +x vnc.sh
 
 - 这样之后，如果想启动VNC服务，只需要在终端输入：
 
-```
-./vnc.sh
-```
+    ./vnc.sh
 
 #### 如果希望VNC服务器在开机后自动运行，只需要在树莓派上创建一个脚本文件便可实现：
 
 - 在终端以root登入树莓派：
 
-```
-sudo su
-```
+    sudo su
+
 
 - 切换到`/etc/init.d/`目录：
 
-```
-cd /etc/init.d/
-```
+    cd /etc/init.d/
 
 - 在该目录下创建一个名为`vncboot`（供参考）的脚本：
-```
-nano vncboot
-```
+
+	nano vncboot
 
 - 输入以下内容：
 
-`###BEGIN INIT INFO`
-`#Provides: vncboot`
-`#Required-Start: $remote_fs $syslog`
-`#Required-Stop: $remote_fs $syslog#`
-`#Default-Start: 2 3 4 5#`
-`#Default-Stop: 0 1 6#`
-`#Short-Description: Start VNC Server at boot time#`
-`#Description: Start VNC Server at boot time.#`
-`###END INIT INFO`
-`#! /bin/sh`
-`#/etc/init.d/vncboot`
-
-`USER=root`
-`HOME=/root` 
-
-`export USER HOME`
-
-`case "$1" in`
-` start)`
-`  echo "Starting VNC Server"`
-`  #Insert your favoured settings for a VNC session`
-`  /usr/bin/vncserver :0 -geometry 1280x800 -depth 16 -pixelformat rgb565`
-`  ;;`
-
-`stop)`
-`  echo "Stopping VNC Server"`
-`  /usr/bin/vncserver -kill :0`
-`  ;;`
-
-`*)`
-`  echo "Usage: /etc/init.d/vncboot {start|stop}"`
-`  exit 1`
-`  ;;`
-`esac`
-
-`exit 0`
+    ###BEGIN INIT INFO
+    #Provides: vncboot
+	#Required-Start: $remote_fs $syslog
+	#Required-Stop: $remote_fs $syslog#
+	#Default-Start: 2 3 4 5#
+	#Default-Stop: 0 1 6#
+	#Short-Description: Start VNC Server at boot time#
+	#Description: Start VNC Server at boot time.#
+	###END INIT INFO
+	#! /bin/sh
+	#/etc/init.d/vncboot
+	
+	USER=root
+	HOME=/root
+	
+	export USER HOME
+	
+	case "$1" in
+	start)
+	echo "Starting VNC Server"
+	
+	#Insert your favoured settings for a VNC session
+	/usr/bin/vncserver :0 -geometry 1280x800 -depth 16 -pixelformat rgb565
+	  ;;
+	stop)
+	
+	echo "Stopping VNC Server"
+	/usr/bin/vncserver -kill :0
+	  ;;
+	
+	*)
+	
+	echo "Usage: /etc/init.d/vncboot {start|stop}"
+	exit 1
+	  ;;
+	
+	esac
+	
+	exit 0
 
 - 然后按`Ctrl`和`X`（意思为退出），此时`nano`会提示询问是否保存，再按`Y`（即：确认保存），最后按下`Enter`，完成脚本的保存。
-
 - 添加执行权限：
 
-```
-chmod 755 vncboot
-```
+    chmod 755 vncboot
 
 - 添加到启动运行队列：
-```
-update-rc.d /etc/init.d/vncboot defaults
-```
+
+    update-rc.d /etc/init.d/vncboot defaults
 
 - 如果添加成功，系统会返回：
-```
-update-rc.d: using dependency based boot sequencing
-```
+
+    update-rc.d: using dependency based boot sequencing
 
 - 但如果系统返回的是：
-```
-update-rc.d: error: unable to read /etc/init.d//etc/init.d/vncboot
-```
+
+    update-rc.d: error: unable to read /etc/init.d//etc/init.d/vncboot
 
 - 则再尝试如下命令：
-```
-update-rc.d vncboot defaults
-```
+
+    update-rc.d vncboot defaults
 
 - 重启树莓派，VNC服务便将自动启动。
 
